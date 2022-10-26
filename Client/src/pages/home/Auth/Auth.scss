@@ -1,0 +1,95 @@
+.Auth{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    gap: 4rem;
+    position: relative;
+}
+
+.Auth>div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+ 
+/* left */
+.a-left{
+    gap: 2rem;
+}
+
+.a-left> img{
+    width: 4rem;
+    height: 4rem;
+}
+
+.webName{
+    font-size: 1rem;
+    background-color: red;
+
+    /* Create the gradient */
+    background-image: var(--buttonBg);
+    /* set background size and properties */
+    background-size: 100%;
+    background-repeat: repeat;
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-background-clip: text;
+    -moz-text-fill-color: transparent
+}
+
+.webName>h6{
+    font-size: 0.85re;
+}
+
+.infoForm{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+
+.infoInput{
+    border: none;
+    outline: none;
+    background-color: var(--inputColor);
+    border-radius: 8px;
+    padding: 20px;
+    flex: 1;
+}
+
+.infoForm>div{
+    display: flex;
+    gap: 1rem;
+    width: 90%;
+    height: 2rem;
+}
+
+.infoButton{
+    width: 6rem;
+    height: 2rem;
+    align-self: flex-end;
+}
+
+.authForm{
+    background-color: var(--cardColor);
+    border-radius: 1rem;
+    padding: 1rem;
+}
+
+.authForm>div{
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.haveAnAc{
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.haveAnAc:hover{
+    color: blue;
+}
