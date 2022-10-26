@@ -19,7 +19,7 @@ const Auth = () => {
         <img src={Logo} alt="" />
         <div className="webName">
             <h1>WIDE VERSE</h1>
-            <h6>ujgf7i</h6>
+            <h6>Explore!!!</h6>
         </div>
     </div>
     {/* Right side */}
