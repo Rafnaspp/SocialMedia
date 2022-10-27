@@ -1,11 +1,14 @@
 import React from 'react'
 import './Auth.scss'
-import Logo from '../../../img/logo.png'
+import Logo from '../../img/logo.png'
 import { useState } from 'react'
+import {useDispatch, useSelector} from 'react-redux'
+import { logIn, signUp } from '../../actions/AuthAction.js'
 
 const Auth = () => {
+  const dispatch = useDispatch()
+  const loading = useSelector((state)=>state.authReducer.loading)
   const [isSignUp, setIsSignUp] = useState(true)
-
   const [data, setData] = useState({ firstname: "", lastname: "", password: "", confirmpass: "", username: "" })
 
   const handleChange = (e) => {
@@ -17,8 +20,13 @@ const Auth = () => {
  const handleSubmit = (e)=>{
     e.preventDefault()
 
-    if(data.password !== data.confirmpass){
-      setConfirmPass(false)
+    if(isSignUp){
+       data.password === data.confirmpass 
+       ?dispatch(signUp(data))
+       :setConfirmPass(false)
+    }
+    else{
+      dispatch(logIn(data))
     }
  }
  

@@ -63,6 +63,7 @@ export const deletePost = async(req, res)=>{
             res.status(403).json("Action forbidden")
         }
     } catch (error) {
+        console.log(error);
         res.status(500).json(error)
     }
 }

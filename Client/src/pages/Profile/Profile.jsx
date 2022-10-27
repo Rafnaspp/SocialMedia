@@ -1,8 +1,8 @@
 import React from 'react'
-import PostSide from '../../../components/PostSide/PostSide'
-import ProfileCard from '../../../components/Profilecard/ProfileCard'
-import ProfileLeft from '../../../components/ProfileLeft/ProfileLeft'
-import RightSide from '../../../components/RightSide/RightSide'
+import PostSide from '../../components/PostSide/PostSide'
+import ProfileCard from '../../components/Profilecard/ProfileCard'
+import ProfileLeft from '../../components/ProfileLeft/ProfileLeft'
+import RightSide from '../../components/RightSide/RightSide'
 
 
 
