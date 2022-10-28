@@ -1,4 +1,4 @@
-.Auth{
+.Auth {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -7,23 +7,23 @@
     position: relative;
 }
 
-.Auth>div{
+.Auth>div {
     display: flex;
     align-items: center;
     justify-content: center;
 }
- 
+
 /* left */
-.a-left{
+.a-left {
     gap: 2rem;
 }
 
-.a-left> img{
+.a-left>img {
     width: 4rem;
     height: 4rem;
 }
 
-.webName{
+.webName {
     font-size: 1rem;
     background-color: red;
 
@@ -39,11 +39,11 @@
     -moz-text-fill-color: transparent
 }
 
-.webName>h6{
+.webName>h6 {
     font-size: 0.85re;
 }
 
-.infoForm{
+.infoForm {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -51,7 +51,7 @@
     gap: 2rem;
 }
 
-.infoInput{
+.infoInput {
     border: none;
     outline: none;
     background-color: var(--inputColor);
@@ -60,52 +60,58 @@
     flex: 1;
 }
 
-.infoForm>div{
+.infoForm>div {
     display: flex;
     gap: 1rem;
     width: 90%;
     height: 2rem;
 }
 
-.infoButton{
+.infoButton {
     width: 6rem;
     height: 2rem;
     align-self: flex-end;
 }
 
-.authForm{
+.authForm {
     background-color: var(--cardColor);
     border-radius: 1rem;
     padding: 1rem;
 }
 
-.authForm>div{
+.authForm>div {
     width: 100%;
     align-items: center;
     justify-content: center;
 }
 
-.haveAnAc{
+.haveAnAc {
     cursor: pointer;
     font-size: 12px;
 }
 
-.haveAnAc:hover{
+.haveAnAc:hover {
     color: blue;
 }
 
 
-.d__none{
+.d__none {
     display: none;
 }
 
-.d__block{
+.d__block {
     display: block;
 }
 
-.confirmPass{
+.confirmPass {
     color: red;
     font-size: 12px;
     margin-right: 5px;
     align-self: center;
+}
+
+@media only screen and (max-width: 600px) {
+    .a-left {
+        display: none !important;
+    }
 }

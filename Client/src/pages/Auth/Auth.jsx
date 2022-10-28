@@ -78,7 +78,8 @@ const Auth = () => {
             <span className='haveAnAc' onClick={() => {setIsSignUp((prev) => !prev); resetForm()}}>
               {isSignUp ? "Already have an account. Login!" : "Don't have an account! SignUp"} </span>
           </div>
-          <button className="button infoButton" type='submit'>{isSignUp ? "Sign Up" : "Log In"}</button>
+          <button className="button infoButton" type='submit' disabled={loading}>
+            {loading? "Loading...." : isSignUp ? "Sign Up" : "Log In"}</button>
         </form>
       </div>
 
