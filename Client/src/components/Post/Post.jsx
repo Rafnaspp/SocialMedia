@@ -10,7 +10,7 @@ const Post = ({data}) => {
   const  {user} = useSelector((state)=>state.authReducer.authData)
   return (
   <div className="Post">
-      <img src={data.img} alt="" />
+      <img src={data.image ? process.env.REACT_APP_PUBLIC_FOLDER + data.image :"" } alt="" />
       <div className="postReact">
         <img src={data.Liked?Heart: NotLike} alt="" />
         <img src={Comment} alt="" />
