@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import './infoCard.css'
+import './infoCard.scss'
 import { UilPen } from '@iconscout/react-unicons'
 import { useSetState } from '@mantine/hooks'
 import ProfileModal from '../ProfileModal/ProfileModal'

@@ -1,8 +1,8 @@
 import React from 'react'
 import LogoSearch from '../LogoSearch/LogoSearch'
-import Cover from '../../img/cover.jpg'
-import Profile from '../../img/profileImg.jpg'
-import './ProfileCard.css'
+import Cover from '../../img/Profile.jpg'
+import Profile from '../../img/prfileIMG.jpg'
+import './ProfileCard.scss'
 
 const ProfileCard = () => {
 
@@ -15,7 +15,7 @@ const ProfilePage = true
       <img src={Profile}alt="" />
     </div>
     <div className="ProfileName">
-      <span>ZENDYA</span>
+      <span>ALEN</span>
        <span>Senoir UX UI DESGNER</span>
     </div>
   <div className="followStatus">

@@ -5,11 +5,11 @@ import jwt from 'jsonwebtoken'
 
 //Registering a new user
 export const registerUser = async(req, res)=>{
-   
+
     
     const salt = await bcrypt.genSalt(10)
     const hashedPass = await bcrypt.hash(req.body.password, salt)
-    req.body.password =hashedPass
+    req.body.password = hashedPass
     const newUser = new UserModel(req.body)
     const {username} = req.body
     try {
@@ -17,7 +17,7 @@ export const registerUser = async(req, res)=>{
     const user = await newUser.save()
     const token = jwt.sign({
         username:user.username , id: user._id
-    },"MERN", {expiresIn: '1hr'})
+    },process.env.JWT_KEY, {expiresIn: '1hr'})
 
         if(oldUser){
             return res.status(400).json({message: "user name is already regisrtered"})
@@ -47,7 +47,7 @@ export const loginUser = async (req, res)=>{
             else{
                 const token = jwt.sign({
                     username:user.username , id: user._id
-                },"MERN", {expiresIn: '1hr'})
+                },process.env.JWT_KEY, {expiresIn: '1hr'})
                 res.status(200).json({user, token})
             }
         }
