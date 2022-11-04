@@ -5,6 +5,7 @@ import jwt from 'jsonwebtoken'
 
 //get All Users
 export const getAllUser = async(req,res)=>{
+    console.log('getAllll userrrrrrr');
     try {
         let users =await UserModel.find()
 
@@ -12,6 +13,7 @@ export const getAllUser = async(req,res)=>{
             const {password,...otherDetails} =user._doc
             return otherDetails
         })
+        console.log(users,'usersasasa');
         res.status(200).json(users)
     } catch (error) {
         res.status(500).json(error)

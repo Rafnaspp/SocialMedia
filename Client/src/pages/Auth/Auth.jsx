@@ -37,7 +37,8 @@ const Auth = () => {
     lastname: "", 
     password: "", 
     confirmpass: "", 
-    username: ""
+    username: "",
+    mobile:""
     })
  }
   return (
@@ -65,6 +66,11 @@ const Auth = () => {
           <div>
             <input type="text" placeholder='Username' className='infoInput' name='username' onChange={handleChange} value={data.username}/>
           </div>
+          {isSignUp &&
+          <div>
+            <input type="text" placeholder='Mobile' className='infoInput' name='mobile' onChange={handleChange} value={data.mobile}/>
+          </div>
+          }
           <div>
             <input type="password" placeholder='Password' className='infoInput' name='password' onChange={handleChange} value={data.password}/>
             {isSignUp &&
