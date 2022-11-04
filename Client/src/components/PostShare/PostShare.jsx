@@ -15,6 +15,7 @@ const PostShare = () => {
    const [image, setImage] = useState(null)
    const imageRef = useRef()  
    const dispatch = useDispatch()
+   const serverPublic = process.env.REACT_APP_PUBLIC_FOLDER
    const desc = useRef()
    const {user} = useSelector((state)=>state.authReducer.authData)
 
@@ -42,7 +43,6 @@ const PostShare = () => {
         data.append("name", filename)
         data.append("file", image)
         newPost.image = filename
-        console.log(newPost);
         try {
             dispatch(uploadImage(data))
         } catch (error) {
@@ -55,7 +55,7 @@ const PostShare = () => {
 
   return (
      <div className="PostShare">
-        <img src={ProfileImage} alt="" />
+        <img src={user.profilePicture? serverPublic + user.profilePicture : serverPublic + "defaultProfile.jpeg"} alt="" />
         <div>
             <input 
             ref = {desc}

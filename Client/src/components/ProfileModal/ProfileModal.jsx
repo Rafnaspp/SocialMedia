@@ -1,7 +1,65 @@
 import { Modal, useMantineTheme } from '@mantine/core';
+import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import {useParams} from 'react-router-dom'
+import { uploadImage } from '../../actions/UploadAction';
+import { updateUser } from '../../actions/userAction';
 
-function ProfieModal({ modalOpened, setModalOpened }) {
+function ProfieModal({ modalOpened, setModalOpened,data }) {
     const theme = useMantineTheme();
+
+    const {password,...other} = data
+    const [formData, setFormData] = useState(other)
+    const [profileImage, setProfileImage] = useState(null)
+    const [coverImage, setCoverImage] = useState(null)
+    const dispatch = useDispatch()
+    const param = useParams()
+
+    const handleChange = (e)=>{
+        setFormData({...formData,[e.target.name]: e.target.value})
+    }
+
+    const onImageChange = (event)=> {
+        if(event.target.files && event.target.files[0]){
+            let img = event.target.files[0]
+            event.target.name === "profileImage"
+            ? setProfileImage(img)
+            : setCoverImage(img)
+        }
+    }
+
+    const handleSubmit = (e)=>{
+        e.preventDefault()
+        console.log('sbmtttdddddddd');
+
+        let UserData = formData
+        if(profileImage){
+            const data = new FormData()
+            const fileName = Date.now() + profileImage.name
+            data.append("name", fileName)
+            data.append("file", profileImage)
+            UserData.profilePicture = fileName
+            try {
+                dispatch(uploadImage(data))
+            } catch (error) {
+                console.log(error);
+            }
+        } 
+        if(coverImage){
+            const data = new FormData()
+            const fileName = Date.now() + coverImage.name
+            data.append("name", fileName)
+            data.append("file", coverImage)
+            UserData.coverPicture = fileName
+            try {
+                dispatch(uploadImage(data))
+            } catch (error) {
+                console.log(error);
+            }
+        } 
+        dispatch(updateUser(param.id, UserData))
+        setModalOpened(false)
+    }
 
     return (
         <Modal
@@ -15,28 +73,40 @@ function ProfieModal({ modalOpened, setModalOpened }) {
             <form className="infoForm">
                 <h3>Your info</h3>
                 <div>
-                    <input type="text" className="infoInput" name='FirstName' placeholder='First Name' />
-                    <input type="text" className="infoInput" name='LastName' placeholder='Last Name' />
+                    <input type="text" className="infoInput" name='firstname' placeholder='First Name' onChange={handleChange} 
+                    value={formData.firstname}
+                    />
+                    <input type="text" className="infoInput" name='lastname' placeholder='Last Name' onChange={handleChange} 
+                    value={formData.lastname}
+                    />
 
                 </div>
                 <div>
-                <input type="text" className="infoInput" name='worksAT' placeholder='Works AT' />
+                <input type="text" className="infoInput" name='worksAt' placeholder='Works AT' onChange={handleChange} 
+                value={formData.worksAt}
+                />
                 </div>
                 <div>
-                    <input type="text" className="infoInput" name='livesIN' placeholder='Lives IN' />
-                    <input type="text" className="infoInput" name='Country' placeholder='Country' />
+                    <input type="text" className="infoInput" name='livesin' placeholder='Lives IN' onChange={handleChange}
+                    value={formData.livesin}
+                    />
+                    <input type="text" className="infoInput" name='country' placeholder='Country' onChange={handleChange}
+                    value={formData.country}
+                     />
                 </div>
                 <div>
-                <input type="text" className="infoInput"  placeholder='Relation ship Status' />
+                <input type="text" className="infoInput"  placeholder='Relation ship Status' name='relationship' onChange={handleChange}
+                value={formData.relationship}
+                />
                 </div>
                 <div>
                     Profile Image
-                <input type="file" name='profileImg' />
+                <input type="file" name='profileImage' onChange={onImageChange}/>
                 Cover Image 
-                <input type="file" name='profileImg' />
+                <input type="file" name='coverImage'onChange={onImageChange} />
   
                 </div>
-                <button className='button infoButton'>Update</button>
+                <button className='button infoButton' onClick={handleSubmit} >Update</button>
             </form>
         </Modal>
     );
