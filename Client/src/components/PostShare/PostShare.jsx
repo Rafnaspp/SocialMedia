@@ -1,5 +1,5 @@
 import React,{useState,useRef} from 'react'
-import ProfileImage from '../../img/prfileIMG.jpg'
+import Profile from '../../img/Profile.jpeg'
 import './PostShare.scss'
 import {UilScenery} from "@iconscout/react-unicons"
 import {UilPlayCircle} from "@iconscout/react-unicons"
@@ -55,7 +55,7 @@ const PostShare = () => {
 
   return (
      <div className="PostShare">
-        <img src={user.profilePicture? serverPublic + user.profilePicture : serverPublic + "defaultProfile.jpeg"} alt="" />
+        <img src={user.profilePicture? serverPublic + user.profilePicture :Profile} alt="" />
         <div>
             <input 
             ref = {desc}

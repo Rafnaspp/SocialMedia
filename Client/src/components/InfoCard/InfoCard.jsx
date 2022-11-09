@@ -61,7 +61,7 @@ const InfoCard = () => {
             </div>
             <div className="info">
                 <span>
-                    <b> lives in</b>
+                    <b> lives in </b>
                 </span>
                 <span>{profileUser.livesin}</span>
             </div>

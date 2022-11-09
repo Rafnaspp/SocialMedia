@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { followUser, unFollowUser } from '../../actions/userAction'
+import Profile from '../../img/Profile.jpeg'
 
 const User = ({person}) => {
     const dispatch = useDispatch()
@@ -18,7 +19,7 @@ const User = ({person}) => {
     return (
         <div className="Follower">
             <div>
-                <img src={person.profilePicture? serverPublic + person.profilePicture : serverPublic + "defaultProfile.jpeg"} alt=""  className='followerImage' />
+                <img src={person.profilePicture? serverPublic + person.profilePicture : Profile} alt=""  className='followerImage' />
                 
                 <div className="name">
                     <span>{person.firstname}</span>

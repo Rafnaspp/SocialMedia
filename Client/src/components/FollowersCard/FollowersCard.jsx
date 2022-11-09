@@ -4,6 +4,7 @@ import { useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import { getAllUser } from '../../Api/UserRequest'
 import User from '../User/User'
+
 import './FollowersCard.scss'
 
 const FollowersCard = () => {
