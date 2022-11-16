@@ -2,7 +2,7 @@ import React from 'react'
 import { Modal, useMantineTheme } from '@mantine/core';
 import { useState } from 'react';
 import {useDispatch, useSelector} from 'react-redux'
-import { signUp } from '../../actions/AuthAction.js'
+import { signUp } from '../../Redux/actions/AuthAction.js'
 
 const OtpModal = ({ modalOpened, setModalOpened,datas}) => {
     const dispatch = useDispatch()

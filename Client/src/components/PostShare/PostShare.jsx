@@ -7,7 +7,7 @@ import {UilLocationPoint} from "@iconscout/react-unicons"
 import {UilSchedule} from "@iconscout/react-unicons"
 import {UilTimes} from "@iconscout/react-unicons"
 import { useDispatch, useSelector } from 'react-redux'
-import { uploadImage, uploadPost } from '../../actions/UploadAction.js'
+import { uploadImage, uploadPost } from '../../Redux/actions/UploadAction.js'
 
 
 const PostShare = () => {
@@ -57,10 +57,10 @@ const PostShare = () => {
      <div className="PostShare">
         <img src={user.profilePicture? serverPublic + user.profilePicture :Profile} alt="" />
         <div>
-            <input 
-            ref = {desc}
-            required
-            type="text" placeholder='whats happening' />
+            <textarea name="" id="" cols="3" rows="2" ref = {desc}
+            required  placeholder='whats happening'>
+            </textarea>
+            
         <div className='PostOptions'>
         <div className="options" style={{color:"var(--photo)"}}
         onClick={()=>imageRef.current.click()}

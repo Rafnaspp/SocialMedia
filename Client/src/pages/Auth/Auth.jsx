@@ -4,7 +4,7 @@ import Logo from '../../img/logo.png'
 import OtpModal from '../../components/OtpModal/OtpModal'
 import { useState } from 'react'
 import {useDispatch, useSelector} from 'react-redux'
-import { checkUser, logIn, signUp } from '../../actions/AuthAction.js'
+import { checkUser, logIn, signUp } from '../../Redux/actions/AuthAction.js'
 
 const Auth = () => {
   const dispatch = useDispatch()

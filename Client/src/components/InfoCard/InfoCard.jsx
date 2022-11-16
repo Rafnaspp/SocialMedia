@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
 import { useEffect } from 'react'
 import * as UserApi from '../../Api/UserRequest.js'
-import { logOut } from '../../actions/AuthAction.js'
+import { logOut } from '../../Redux/actions/AuthAction.js'
 
 const InfoCard = () => {
 

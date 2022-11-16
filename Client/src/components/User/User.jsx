@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { followUser, unFollowUser } from '../../actions/userAction'
+import { followUser, unFollowUser } from '../../Redux/actions/userAction'
 import Profile from '../../img/Profile.jpeg'
 
 const User = ({person}) => {

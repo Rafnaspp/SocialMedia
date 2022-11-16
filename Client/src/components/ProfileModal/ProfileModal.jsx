@@ -2,8 +2,8 @@ import { Modal, useMantineTheme } from '@mantine/core';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import {useParams} from 'react-router-dom'
-import { uploadImage } from '../../actions/UploadAction';
-import { updateUser } from '../../actions/userAction';
+import { uploadImage } from '../../Redux/actions/UploadAction';
+import { updateUser } from '../../Redux/actions/userAction';
 
 function ProfieModal({ modalOpened, setModalOpened,data }) {
     const theme = useMantineTheme();
