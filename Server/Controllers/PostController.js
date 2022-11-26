@@ -62,6 +62,10 @@ export const deletePost = async(req, res)=>{
             await post.deleteOne()
             res.status(200).json({id})
         }
+        else if(userId == "admin"){
+            await post.deleteOne()
+            res.status(200).json({id})
+        }
         else{
             res.status(403).json("Action forbidden")
         }
@@ -148,3 +152,18 @@ export const addComment = async(req, res)=>{
        res.status(500).json(error)
    }
 }
+
+
+
+//get all posts
+
+export const getPosts = async(req,res)=>{
+    console.log('helooo getposts    ');
+    try {
+        let posts = await PostModel.find()
+            res.status(200).json(posts)
+    } catch (error) {
+        res.status(500).json(error)
+    }
+}
+

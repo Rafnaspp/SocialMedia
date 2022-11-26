@@ -14,6 +14,8 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 import { useNavigate } from 'react-router-dom';
+import { adminLogOut } from '../../Redux/actions/AuthAction';
+import { useDispatch } from 'react-redux'
 
 
 const pages = ['Products', 'Pricing', 'Blog'];
@@ -23,9 +25,9 @@ const AdminLand = ({children}) => {
     const navigate = useNavigate()
     const [anchorElNav, setAnchorElNav] = React.useState(null);
     const [anchorElUser, setAnchorElUser] = React.useState(null);
-  
+    const dispatch = useDispatch()
+
     const handleOpenNavMenu = (event) => {
-      
       setAnchorElNav(event.currentTarget);
     };
     const handleOpenUserMenu = (event) => {
@@ -50,11 +52,17 @@ const AdminLand = ({children}) => {
       setAnchorElUser(null);
     };
   
- 
+    const handleLogOut = ()=>{
+      dispatch(adminLogOut())
+  }
 
 
 
   return (
+   
+
+
+
     <div className='adminHome' >
     <div>
     <AppBar position="static">
@@ -175,11 +183,11 @@ const AdminLand = ({children}) => {
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
-              {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
+            
+                <MenuItem  onClick={()=>{handleCloseUserMenu();handleLogOut()}}>
+                  <Typography textAlign="center">Logout</Typography>
                 </MenuItem>
-              ))}
+            
             </Menu>
           </Box>
         </Toolbar>

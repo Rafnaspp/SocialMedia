@@ -40,7 +40,7 @@ function CommentModal({ modalOpened, setModalOpened, postId, posts, persons}) {
         d.toString() 
         setData({...data,
             commentText: e.target.value,
-            date: d,
+            date: d.toDateString(),
             userId : user._id,
             userName:user.username,
             profilePicture: user.profilePicture,
@@ -83,7 +83,7 @@ function CommentModal({ modalOpened, setModalOpened, postId, posts, persons}) {
       <input  type="text" name='commentText' style={{"width" : "90%" ,"height" : "3rem"}}  placeholder='Add your Comment' onChange={handleChange}
       value={data.commentText}
       />
-      <Button variant="contained" onClick={addComments}>
+      <Button style={{"marginLeft" : "4px"}} variant="contained" onClick={addComments}>
       Add
     </Button>
       </div>
