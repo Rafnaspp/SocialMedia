@@ -11,7 +11,18 @@ export const logIn = (formData) => async(dispatch) => {
   }
 }
 
+export const adminLogIn = (formData) => async(dispatch) => {
+  dispatch({type: "ADMIN_START"})
+try {
+    dispatch({type : "ADMIN_SUCCESS", data:formData})
+} catch (error) {
+   console.log(error);    
+   dispatch({type: "ADMIN_FAIL"})
+}
+}
+
 export const checkUser = (formData) => async(dispatch) => {
+  
   dispatch({type: "CHECK_START"})
 try {
     const {data} = await AuthApi.checkUser(formData)

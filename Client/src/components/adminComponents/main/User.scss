@@ -1,0 +1,24 @@
+.table{
+    margin-top: 20px;
+}
+
+.button{
+    width: 4rem;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    background: var(--buttonBg);
+    transition: all 100ms ease-out;
+  }
+  
+  .button:hover{
+    cursor: pointer;
+    color: var(--orange);
+    background: transparent;
+    border-radius: 2px solid var(--orange);
+  }
+  

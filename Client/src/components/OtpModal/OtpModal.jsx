@@ -8,6 +8,8 @@ const OtpModal = ({ modalOpened, setModalOpened,datas}) => {
     const dispatch = useDispatch()
     const theme = useMantineTheme(); 
     const [data, setData] = useState(datas)
+
+
     console.log(data);
     const check = useSelector((state)=>state.authReducer.check)
     console.log(check,'checkkkkkkk');
@@ -34,8 +36,10 @@ console.log('incluse otpppppp');
             opened={modalOpened}
             onClose={() => setModalOpened(false)}
         >
-            {check === true?(<form className="infoForm">
-                <h3>Otp Modal</h3>
+            
+            {check === true?(
+            <form className="infoForm">
+                <h3>Enter Otp</h3>
                 <div>
                     <input type="text" className="infoInput" name='OTP' placeholder='Enter OTP' 
                    onChange={handleChange}

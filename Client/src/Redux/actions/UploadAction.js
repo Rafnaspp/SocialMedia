@@ -18,3 +18,15 @@ export const uploadPost = (data) => async(dispatch)=> {
         dispatch({type: "UPLOAD_FAILED"})
     }
 }
+
+export const addComment =  (data) => async(dispatch)=>{
+    dispatch({type:"ADD_COMMENT_START"})
+   try {
+    const newComment = await UploadApi.addComment(data)
+    console.log('ON ACTION UOPOAD',newComment);
+    dispatch({type:"ADD_COMMENT_SUCCESS", data:newComment.data.posts})
+   } catch (error) {
+    dispatch({type:"ADD_COMMENT_FAILED"})
+   } 
+
+}

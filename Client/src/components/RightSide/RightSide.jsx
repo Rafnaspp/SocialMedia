@@ -7,6 +7,7 @@ import { UilSetting } from '@iconscout/react-unicons'
 import {Link} from 'react-router-dom'
 import TrendCard from '../TrendCard/TrendCard'
 import ShareModal from '../ShareModal/ShareModal'
+import ChatOnLand from '../../pages/chat/ChatOnLand'
 
 const RightSide = () => {
     
@@ -19,14 +20,15 @@ const RightSide = () => {
                 <Link to='../home'>
                 <img src={Home} alt="" />
                 </Link>
-                <UilSetting />
-                <img src={Noti} alt="" />
+                {/* <UilSetting /> */}
+                {/* <img src={Noti} alt="" /> */}
                 <Link to="../chat">
                 <img src={Comment} alt="" />
                 </Link>
             </div>
 
-            <TrendCard />
+            {/* <TrendCard /> */}
+          <ChatOnLand />
             <button className='button r-button' onClick={() => setModalOpened(true)} >
                 share
             </button>

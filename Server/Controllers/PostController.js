@@ -50,14 +50,17 @@ export const updatePost = async(req, res)=>{
 //Delete a post 
 export const deletePost = async(req, res)=>{
     const id = req.params.id
-    const {userId} = req.body
+    const userId = req.params.userId
+    console.log('User Id In delete:',userId);
+    console.log(req.params);
+    
 
     try {
         
         const post = await PostModel.findById(id)
         if(post.userId === userId){
             await post.deleteOne()
-            res.status(200).json("post deleted successfully")
+            res.status(200).json({id})
         }
         else{
             res.status(403).json("Action forbidden")
@@ -125,4 +128,23 @@ export const getTimelinePosts = async(req, res)=>{
     } catch (error) {
         res.status(500).json(error)
     }
+}
+
+
+//Add Comment
+
+export const addComment = async(req, res)=>{
+    console.log('comment req.body',req.body);
+    const data = req.body
+    const postId = data.postId
+    console.log(data,'DATATA');
+   try {
+    const post = await PostModel.findById(postId)
+    console.log('post on comment',post);
+    await post.updateOne({$push : {commnets : data}})
+    const posts = await PostModel.findById(postId)
+        res.status(200).json({posts})
+   } catch (error) {
+       res.status(500).json(error)
+   }
 }

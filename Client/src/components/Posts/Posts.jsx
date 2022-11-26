@@ -19,7 +19,7 @@ const Posts = () => {
   }, [])
  
   if(!posts) return "no posts"
-  if(params.id) posts.filter((post)=> post.userId === params.id)
+  if(params.id) posts = posts.filter((post)=> post.userId === user._id)
 
   return (
     <div className="Posts">

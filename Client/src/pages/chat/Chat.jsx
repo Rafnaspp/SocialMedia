@@ -15,8 +15,10 @@ import ChatBox from '../../components/ChatBox/ChatBox'
 import {io} from 'socket.io-client'
 import { useRef } from 'react'
 
+
 const Chat = () => {
     
+  
     const {user} = useSelector((state) => state.authReducer.authData)
     console.log(user._id,'userid');
 
@@ -28,24 +30,25 @@ const Chat = () => {
     const socket = useRef()
 
 
-    //sending message to socket server
-    useEffect(()=>{
-      if(sendMessage !== null){
-    socket.current.emit('send-message', sendMessage)
-      }
-    },[sendMessage])
-
-
 
     
-    
     useEffect(()=>{
-      socket.current = io('http://localhost:8800')
+      socket.current = io('ws://localhost:8800')
       socket.current.emit("new-user-add", user._id)
       socket.current.on('get-users', (users)=>{
         setOnlineUsers(users)
       })
     },[user])
+
+    
+    //sending message to socket server
+    useEffect(()=>{
+      console.log('sendMessage before check:',sendMessage);
+      if(sendMessage !== null){
+        console.log('sendMessage after check:',sendMessage);
+    socket.current.emit('send-message', sendMessage)
+      }
+    },[sendMessage])
     
     //recieve message from socket server
      useEffect(()=>{
@@ -98,8 +101,8 @@ const Chat = () => {
                 <Link to='../home'>
                 <img src={Home} alt="" />
                 </Link>
-                <UilSetting />
-                <img src={Noti} alt="" />
+                {/* <UilSetting /> */}
+                {/* <img src={Noti} alt="" /> */}
                 <Link to="../chat">
                 <img src={Comment} alt="" />
                 </Link>

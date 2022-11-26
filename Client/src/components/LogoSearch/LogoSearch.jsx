@@ -8,9 +8,9 @@ const LogoSearch = () => {
     <div className="LogoSearch">
       <img src={Logo} alt="" />
       <div className="Search">
-        <input type="text" placeholder='#Explore' />
-        <div className="s-icon">
-              <UilSearch/>
+        {/* <input type="text" placeholder='#Explore' /> */}
+        <div className="">
+              {/* <UilSearch/> */}
         </div>
       </div>
     </div>

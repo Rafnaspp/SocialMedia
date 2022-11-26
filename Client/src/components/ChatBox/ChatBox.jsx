@@ -72,7 +72,7 @@ const ChatBox = ({ chat, currentUser, setSendMessage , receiveMessage}) => {
         // send message to database
         try {
             const {data} = await addMessage(message)
-            setMessages([...message,data])
+            setMessages([...messages,data])
             setNewMessage("")
         } catch (error) {
             console.log(error);
@@ -131,6 +131,7 @@ const ChatBox = ({ chat, currentUser, setSendMessage , receiveMessage}) => {
                          onChange = {handleChange}
                          />
                          <div className="send-button button" onClick={handleSend} >SEND</div>
+                         
                      </div>
                  </>
                 ):(
