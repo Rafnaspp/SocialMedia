@@ -6,9 +6,16 @@ import './Home.scss'
 const Home = () => {
   return (
     <div className="Home">
+      <div className='profile-side'>
         <ProfileSide />
-        <PostSide />
-        <RightSide /> 
+      </div>
+<div className='post-side'>
+<PostSide />
+  </div>   
+  <div className='right-side'>
+  <RightSide /> 
+    </div>    
+      
     </div>
   )
 }

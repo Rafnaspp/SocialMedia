@@ -33,6 +33,7 @@ function ProfieModal({ modalOpened, setModalOpened,data }) {
         console.log('sbmtttdddddddd');
 
         let UserData = formData
+        console.log('formdata on modal;',UserData);
         if(profileImage){
             const data = new FormData()
             const fileName = Date.now() + profileImage.name

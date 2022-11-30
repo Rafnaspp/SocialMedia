@@ -1,6 +1,7 @@
 import UserModel from '../Models/userModel.js';
 import bcrypt from 'bcrypt'
 import jwt from 'jsonwebtoken'
+import nodeMailer from 'nodemailer'
 import twilio from 'twilio'
 
 //check user exist 
@@ -18,11 +19,11 @@ export const checkUser = async(req, res)=>{
     
     if(oldUser){
         return res.status(200).json({message: "user name is already regisrtered"})
-    }
+    } 
     // else{
-    //     const serviveSSID ='VAc8116e25058aa76073b7cdd888281806'
-    //     const accountSID = 'AC540070733f87f5dbf7c18f5aa3e91df5'
-    //     const authToken = 'f1b4b9c95200fc18fc49e79dd23cd6c5'
+    //     const serviveSSID =process.env.serviveSSID
+    //     const accountSID =  process.env.accountSID
+    //     const authToken = process.env.authToken
     //     const client =twilio(accountSID,authToken);
     //     client.verify.services(serviveSSID).verifications.create({
     //         to :`+91${mobile}`,
@@ -43,9 +44,9 @@ export const registerUser = async(req, res)=>{
     const mobile = req.body.mobile
     const otp=req.body.OTP
     // console.log(otp,"otppppp");
-    // const serviveSSID ='VAc8116e25058aa76073b7cdd888281806'
-    // const accountSID = 'AC540070733f87f5dbf7c18f5aa3e91df5'
-    // const authToken = 'f1b4b9c95200fc18fc49e79dd23cd6c5'
+    // const serviveSSID =process.env.serviveSSID
+    // const accountSID = process.env.accountSID
+    // const authToken =  process.env.authToken 
     // const client =twilio(accountSID,authToken);
     // const isOtp = await client.verify.services(serviveSSID).verificationChecks.create({
     //     to:   `+91${mobile}`,
@@ -57,9 +58,12 @@ export const registerUser = async(req, res)=>{
     //     console.log(error);
     // })
     // console.log("is otp......",isOtp.valid);
-     const isOtp ={
-        valid: true
-     }
+   
+    if(otp==='12345'){
+      var isOtp ={
+           valid: true
+        }
+    }
     if(isOtp.valid){
     const salt = await bcrypt.genSalt(10)
     const hashedPass = await bcrypt.hash(req.body.password, salt)
